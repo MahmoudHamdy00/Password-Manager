@@ -9,11 +9,11 @@ namespace Password_Manager
     public partial class PasswordManager : Form
     {
         private const string numbers = "0123456789";
-        private const string specialLetters = "@$!%*#?&";
+        private const string specialLetters = "!\"#$%&'()*+,-./\\:;<=>?@[]^_`{|}~";
         private const string lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
         private const string upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private static readonly Random random = new Random();
-        private static readonly Regex strongPasswordPattern = new Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[a-zA-Z0-9@$!%*?&]{8,}$");
+        private static readonly Regex strongPasswordPattern = new Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!\"#$%&'()*+,-./\\:;<=>?@[" + @"\]" + "^_`{|}~])[a-zA-Z0-9!\"#$%&'()*+,-./\\:;<=>?@[" + @"\]" + "^_`{|}~]{6,}$");
 
         public PasswordManager()
         {
